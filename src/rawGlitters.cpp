@@ -30,7 +30,7 @@ struct RawGlitters : Module {
 	}
 
 	void process(const ProcessArgs& args) override {
-	    bool highRez = params[HIGHREZ_PARAM] > 0.f;
+	    bool highRez = params[RES_PARAM] > 0.f;
 
 		float enabled = params[ENABLED_PARAM].getValue();
 		float fDeRez = params[DEREZ_PARAM].getValue();

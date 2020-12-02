@@ -30,22 +30,39 @@
   <a href="#license">License</a>
 </p>
 
-## rawGlitters
+## Modules
+
+### rawGlitters
+
+<h1 align="center">
+    <a href="https://mate-app.de">
+      <img src="https://github.com/TobiasPrt/vcvwindows/blob/master/img/rawglitters.png" alt="rawGlitters" width="100">
+  </a>
+</h1>
 
 This module is a straight-up port of Chris Johnsons rawGlitters plugin. The addition is only a panel designed to be potentially buildable in hardware and some smaller tweaks.
 
-> "RawGlitters is the early non-dither I made that does the opposite of Dither Me Timbers: rather than do a precursor of Dark and find the mellowest, smoothest truncation option, RawGlitters (StudioTan) always tries to find the direction to truncate that is going to accentuate the highs the most. It still only truncates, and works like a dither would. You can leave DeRez off, and at either 24 or 16 bit you’ll find it gives a distinct tone to your 24 or 16 bit output. It really lights up the detail of the track, always in a subtle way right down at the noise floor."
+> "RawGlitters is the early non-dither I made that does the opposite of Dither Me Timbers: rather than do a precursor of Dark and find the mellowest, smoothest truncation option, RawGlitters (StudioTan) always tries to find the direction to truncate that is going to accentuate the highs the most. It still only truncates, and works like a dither would. You can leave DeRez off, and at either 24 or 16 bit you’ll find it gives a distinct tone to your 24 or 16 bit output. It really lights up the detail of the track, always in a subtle way right down at the noise floor." 
 ~ Chris Johnson (airwindows)
 
 The full description can be found [here](http://www.airwindows.com/rawglitters-redux/).
 
-!()[]
+### rawTimbers
 
-### Overview
+<h1 align="center">
+    <a href="https://mate-app.de">
+      <img src="https://github.com/TobiasPrt/vcvwindows/blob/master/img/rawtimbers.svg" alt="rawGlitters" width="100">
+  </a>
+</h1>
 
-- On-Off Switch
-- DeRez knob
-- 16 Bit / 24 Bit Switch
+This module is a straight-up port of Chris Johnsons rawTimbers plugin. The addition is only a panel designed to be potentially buildable in hardware and some smaller tweaks.
+
+> "All RawTimbers does, is choose between truncating to fixed point upwards or downwards, from any given point. Like Dither Me Timbers, it runs one sample of latency in order to do this choosing. Unlike Dither Me Timbers, it has an opposite plugin: RawGlitters. I see this stuff as ‘level-dependent EQ’ and always thought it seemed useful to dull and soften the quietest sounds and let loud noises seem brighter: it didn’t make sense to me to brighten the quietest sounds and let loud noises be duller" 
+~ Chris Johnson
+
+The full description can be found [here](https://www.airwindows.com/rawtimbers/).
+
+
 
 ## How To Use
 
