@@ -23,6 +23,15 @@
         "rawglitters",
         "brightenaudio"
       ]
+    },
+    {
+      "slug": "Capacitor2",
+      "name": "Capacitor2",
+      "description": "A port of Capacitor2 made by airwindows as a VCV Rack module.",
+      "tags": [
+        "airwindows",
+        "capacitor2"
+      ]
     }
   ]
 }
