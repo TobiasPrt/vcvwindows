@@ -23,16 +23,6 @@
         "rawglitters",
         "brightenaudio"
       ]
-    },
-    {
-      "slug": "rawTimbers",
-      "name": "rawTimbers",
-      "description": "A port of rawTimbers made by airwindows as a VCV Rack module.",
-      "tags": [
-        "airwindows",
-        "dither",
-        "rawtimbers"
-      ]
     }
   ]
 }
