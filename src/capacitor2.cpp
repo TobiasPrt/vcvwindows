@@ -3,7 +3,7 @@
 
 struct Capacitor2 : Module {
 
-    double iirHighpassAL = 0.0;
+	double iirHighpassAL = 0.0;
     double iirHighpassBL = 0.0;
     double iirHighpassCL = 0.0;
     double iirHighpassDL = 0.0;
@@ -46,7 +46,7 @@ struct Capacitor2 : Module {
     uint32_t fpd = 17;
 
 	enum ParamIds {
-		LONGPASS_PARAM,
+		LOWPASS_PARAM,
 		HIGHPASS_PARAM,
 		NONLIN_PARAM,
 		DRYWET_PARAM,
@@ -68,17 +68,17 @@ struct Capacitor2 : Module {
 
 	Capacitor2() {
 		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
-		configParam(LONGPASS_PARAM, 0.f, 1.f, 0.f, "");
+		configParam(LOWPASS_PARAM, 0.f, 1.f, 0.f, "");
 		configParam(HIGHPASS_PARAM, 0.f, 1.f, 0.f, "");
 		configParam(NONLIN_PARAM, 0.f, 1.f, 0.f, "");
 		configParam(DRYWET_PARAM, 0.f, 1.f, 0.f, "");
 	}
 
 	void process(const ProcessArgs& args) override {
-        long double inputSampleL = inputs[INPUT_1_INPUT].getVoltage();
+		long double inputSampleL = inputs[INPUT_1_INPUT].getVoltage();
         long double inputSampleR = inputs[INPUT_2_INPUT].getVoltage();
 
-        lowpassChase = pow(params[LONGPASS_PARAM].getValue(), 2);
+        lowpassChase = pow(params[LOWPASS_PARAM].getValue(), 2);
         highpassChase = pow(params[HIGHPASS_PARAM].getValue(), 2);
         double nonLin = 1.0+((1.0-params[NONLIN_PARAM].getValue())*6.0);
         double nonLinTrim = 1.5/cbrt(nonLin);
@@ -236,10 +236,10 @@ struct Capacitor2Widget : ModuleWidget {
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-		addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(15.657, 29.742)), module, Capacitor2::LONGPASS_PARAM));
-		addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(15.555, 44.551)), module, Capacitor2::HIGHPASS_PARAM));
-		addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(15.374, 60.507)), module, Capacitor2::NONLIN_PARAM));
-		addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(15.184, 76.421)), module, Capacitor2::DRYWET_PARAM));
+		addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(15.25, 29.742)), module, Capacitor2::LOWPASS_PARAM));
+		addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(15.25, 45.08)), module, Capacitor2::HIGHPASS_PARAM));
+		addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(15.25, 60.507)), module, Capacitor2::NONLIN_PARAM));
+		addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(15.25, 76.421)), module, Capacitor2::DRYWET_PARAM));
 
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(8.819, 96.346)), module, Capacitor2::INPUT_1_INPUT));
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(21.64, 96.346)), module, Capacitor2::INPUT_2_INPUT));
