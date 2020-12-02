@@ -51,7 +51,7 @@ The full description can be found [here](http://www.airwindows.com/rawglitters-r
 
 <h1 align="center">
     <a href="https://mate-app.de">
-      <img src="https://github.com/TobiasPrt/vcvwindows/blob/master/img/rawtimbers.svg" alt="rawGlitters" width="100">
+      <img src="https://github.com/TobiasPrt/vcvwindows/blob/master/img/rawtimbers.png" alt="rawGlitters" width="100">
   </a>
 </h1>
 
