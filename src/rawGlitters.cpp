@@ -25,6 +25,12 @@ struct RawGlitters : Module {
 		NUM_LIGHTS
 	};
 
+    uint32_t fpd = 17;
+    float lastSampleL = 0.0;
+    float lastSample2L = 0.0;
+    float lastSampleR = 0.0;
+    float lastSample2R = 0.0;
+
 	RawGlitters() {
 		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
 		configParam(ENABLED_PARAM, 0.f, 1.f, 0.f, "");
@@ -33,7 +39,7 @@ struct RawGlitters : Module {
 	}
 
 	void process(const ProcessArgs& args) override {
-	    bool highRez = params[HIGHREZ_PARAM] > 0.f;
+	    bool highRez = params[RES_PARAM].getValue() > 0.f;
 
 		float enabled = params[ENABLED_PARAM].getValue();
 		float fDeRez = params[DEREZ_PARAM].getValue();
@@ -64,6 +70,7 @@ struct RawGlitters : Module {
 void RawGlitters::glitter(float scaleFactor, float inputSample, std::string direction) {
     float outScale = scaleFactor;
 
+
     float lastSample = direction == "left" ? lastSampleL : lastSampleR;
     float lastSample2 = direction == "left" ? lastSample2L : lastSample2R;
 
@@ -80,6 +87,7 @@ void RawGlitters::glitter(float scaleFactor, float inputSample, std::string dire
 
     if (2*lastSample <= (inputSample+lastSample2)) outputSample = floor(lastSample);
     else outputSample = floor(lastSample + 1.0);
+
 
     if (direction == "left") {
         lastSample2L = lastSample;
