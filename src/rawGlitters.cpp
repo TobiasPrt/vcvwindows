@@ -100,7 +100,7 @@ struct RawGlittersWidget : ModuleWidget {
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-		addParam(createParamCentered<BefacoSwitch>(mm2px(Vec(180.0, 457.35)), module, RawGlitters::ENABLED_PARAM));
+		addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(180.0, 457.35)), module, RawGlitters::ENABLED_PARAM));
 		addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(180.0, 873.075)), module, RawGlitters::DEREZ_PARAM));
 
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(116.685, 1142.18)), module, RawGlitters::INPUT_1_INPUT));
