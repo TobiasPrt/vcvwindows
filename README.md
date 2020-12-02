@@ -6,9 +6,6 @@
   <a href="https://github.com/TobiasPrt/rawGlitters/releases/tag/v1.0.0">
     <img alt="GitHub tag (latest by date)" src="https://img.shields.io/github/v/tag/TobiasPrt/rawGlitters?label=version">
   </a>
-  <a href="https://github.com/TobiasPrt/rawGlitters/">
-    <img src="https://img.shields.io/github/workflow/status/TobiasPrt/rawGlitters/main/master" />
-  </a>
   <a href="https://github.com/TobiasPrt/rawGlitters_/issues/">
     <img src="https://img.shields.io/github/issues/TobiasPrt/rawGlitters"
          alt="Issues">
