@@ -33,6 +33,8 @@ struct RawGlitters : Module {
 	}
 
 	void process(const ProcessArgs& args) override {
+	    bool highRez = params[HIGHREZ_PARAM] > 0.f;
+
 		float enabled = params[ENABLED_PARAM].getValue();
 		float fDeRez = params[DEREZ_PARAM].getValue();
 
@@ -40,7 +42,8 @@ struct RawGlitters : Module {
 		float inputSampleR = inputs[INPUT_2_INPUT].getVoltage();
 
 		if (enabled == 1) {
-			float scaleFactor = 32768.0;;
+			float scaleFactor = 32768.0;
+			if (highRez) scaleFactor = 8388608.0;
 	    	if (fDeRez > 0.0) scaleFactor *= pow(1.0-fDeRez,6);
 	    	if (scaleFactor < 0.0001) scaleFactor = 0.0001;
 	    	float outScale = scaleFactor;
