@@ -44,8 +44,8 @@ struct RawTimbersWidget : ModuleWidget {
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-		addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(9.958, 40.362)), module, RawTimbers::ENABLED_PARAM));
-		addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(20.542, 40.411)), module, RawTimbers::RES_PARAM));
+		addParam(createParamCentered<CKSS>(mm2px(Vec(9.958, 40.362)), module, RawTimbers::ENABLED_PARAM));
+		addParam(createParamCentered<CKSS>(mm2px(Vec(20.542, 40.411)), module, RawTimbers::RES_PARAM));
 		addParam(createParamCentered<RoundBlackKnob>(mm2px(Vec(15.25, 72.482)), module, RawTimbers::DEREZ_PARAM));
 
 		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(8.819, 96.346)), module, RawTimbers::INPUT_1_INPUT));
