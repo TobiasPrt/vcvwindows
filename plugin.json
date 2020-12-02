@@ -25,20 +25,13 @@
       ]
     },
     {
-      "slug": "rawTimbers",
-      "name": "rawTimbers",
-      "description": "A port of rawTimbers made by airwindows as a VCV Rack module.",
-      "tags": [
-        "airwindows",
-        "dither",
-        "rawtimbers"
-      ]
-    },
-    {
       "slug": "Capacitor2",
       "name": "Capacitor2",
-      "description": "",
-      "tags": []
+      "description": "A port of Capacitor2 made by airwindows as a VCV Rack module.",
+      "tags": [
+        "airwindows",
+        "capacitor2"
+      ]
     }
   ]
 }
