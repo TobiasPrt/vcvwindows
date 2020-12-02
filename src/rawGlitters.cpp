@@ -30,6 +30,62 @@ struct RawGlitters : Module {
 	}
 
 	void process(const ProcessArgs& args) override {
+	    bool highRez = params[HIGHREZ_PARAM] > 0.f;
+
+		float enabled = params[ENABLED_PARAM].getValue();
+		float fDeRez = params[DEREZ_PARAM].getValue();
+
+		float inputSampleL = inputs[INPUT_1_INPUT].getVoltage();
+		float inputSampleR = inputs[INPUT_2_INPUT].getVoltage();
+
+		if (enabled == 1) {
+			float scaleFactor = 32768.0;
+			if (highRez) scaleFactor = 8388608.0;
+	    	if (fDeRez > 0.0) scaleFactor *= pow(1.0-fDeRez,6);
+	    	if (scaleFactor < 0.0001) scaleFactor = 0.0001;
+	    	float outScale = scaleFactor;
+	    	if (outScale < 8.0) outScale = 8.0;
+
+
+	    	if (fabs(inputSampleL)<1.18e-37) inputSampleL = fpd * 1.18e-37;
+		    fpd ^= fpd << 13; 
+		    fpd ^= fpd >> 17; 
+		    fpd ^= fpd << 5;
+		    
+		    if (fabs(inputSampleR)<1.18e-37) inputSampleR = fpd * 1.18e-37;
+		    fpd ^= fpd << 13; 
+		    fpd ^= fpd >> 17; 
+		    fpd ^= fpd << 5;
+
+		    inputSampleL *= scaleFactor;
+		    inputSampleR *= scaleFactor;
+
+		    float outputSampleL;
+		    float outputSampleR;
+
+		    inputSampleL += 0.381966011250105;
+		    inputSampleR += 0.381966011250105;
+
+		    if ((lastSampleL+lastSampleL) <= (inputSampleL+lastSample2L)) outputSampleL = floor(lastSampleL);
+		    else outputSampleL = floor(lastSampleL+1.0);
+
+		    if ((lastSampleR+lastSampleR) <= (inputSampleR+lastSample2R)) outputSampleR = floor(lastSampleR);
+		    else outputSampleR = floor(lastSampleR+1.0);
+
+
+		    lastSample2L = lastSampleL;
+			lastSampleL = inputSampleL;
+
+		    lastSample2R = lastSampleR;
+		    lastSampleR = inputSampleR;
+
+
+		    outputs[OUTPUT_1_OUTPUT].setVoltage(outputSampleL / outScale);
+			outputs[OUTPUT_2_OUTPUT].setVoltage(outputSampleR / outScale);
+		} else {
+			outputs[OUTPUT_1_OUTPUT].setVoltage(inputSampleL);
+			outputs[OUTPUT_2_OUTPUT].setVoltage(inputSampleR);
+		}
 	}
 };
 
