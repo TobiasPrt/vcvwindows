@@ -2,6 +2,9 @@
 
 
 struct RawGlitters : Module {
+
+    void glitter(float scaleFactor, float inputSample, std::string lastSample);
+
 	enum ParamIds {
 		ENABLED_PARAM,
 		DEREZ_PARAM,
@@ -49,49 +52,46 @@ struct RawGlitters : Module {
 	    	float outScale = scaleFactor;
 	    	if (outScale < 8.0) outScale = 8.0;
 
+	    	glitter(scaleFactor, inputSampleL, "left");
+            glitter(scaleFactor, inputSampleR, "right");
 
-	    	if (fabs(inputSampleL)<1.18e-37) inputSampleL = fpd * 1.18e-37;
-		    fpd ^= fpd << 13; 
-		    fpd ^= fpd >> 17; 
-		    fpd ^= fpd << 5;
-		    
-		    if (fabs(inputSampleR)<1.18e-37) inputSampleR = fpd * 1.18e-37;
-		    fpd ^= fpd << 13; 
-		    fpd ^= fpd >> 17; 
-		    fpd ^= fpd << 5;
-
-		    inputSampleL *= scaleFactor;
-		    inputSampleR *= scaleFactor;
-
-		    float outputSampleL;
-		    float outputSampleR;
-
-		    inputSampleL += 0.381966011250105;
-		    inputSampleR += 0.381966011250105;
-
-		    if ((lastSampleL+lastSampleL) <= (inputSampleL+lastSample2L)) outputSampleL = floor(lastSampleL);
-		    else outputSampleL = floor(lastSampleL+1.0);
-
-		    if ((lastSampleR+lastSampleR) <= (inputSampleR+lastSample2R)) outputSampleR = floor(lastSampleR);
-		    else outputSampleR = floor(lastSampleR+1.0);
-
-
-		    lastSample2L = lastSampleL;
-			lastSampleL = inputSampleL;
-
-		    lastSample2R = lastSampleR;
-		    lastSampleR = inputSampleR;
-
-
-		    outputs[OUTPUT_1_OUTPUT].setVoltage(outputSampleL / outScale);
-			outputs[OUTPUT_2_OUTPUT].setVoltage(outputSampleR / outScale);
 		} else {
 			outputs[OUTPUT_1_OUTPUT].setVoltage(inputSampleL);
 			outputs[OUTPUT_2_OUTPUT].setVoltage(inputSampleR);
 		}
 	}
+
+
 };
 
+void RawGlitters::glitter(float scaleFactor, float inputSample, std::string direction) {
+    float outScale = scaleFactor;
+
+    float lastSample = direction == "left" ? lastSampleL : lastSampleR;
+    float lastSample2 = direction == "left" ? lastSample2L : lastSample2R;
+
+    if (fabs(inputSample)<1.18e-37) inputSample = fpd * 1.18e-37;
+    fpd ^= fpd << 13;
+    fpd ^= fpd >> 17;
+    fpd ^= fpd << 5;
+
+    inputSample *= scaleFactor;
+
+    float outputSample;
+
+    inputSample += 0.381966011250105;
+
+    if (2*lastSample <= (inputSample+lastSample2)) outputSample = floor(lastSample);
+    else outputSample = floor(lastSample + 1.0);
+
+    if (direction == "left") {
+        lastSample2L = lastSample;
+        outputs[OUTPUT_1_OUTPUT].setVoltage(outputSample / outScale);
+    } else {
+        lastSample2R = lastSample;
+        outputs[OUTPUT_2_OUTPUT].setVoltage(outputSample / outScale);
+    }
+}
 
 struct RawGlittersWidget : ModuleWidget {
 	RawGlittersWidget(RawGlitters* module) {
