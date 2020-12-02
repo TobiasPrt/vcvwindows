@@ -1,0 +1,28 @@
+{
+  "slug": "vcvwindows",
+  "name": "vcvwindows",
+  "version": "1.0.0",
+  "license": "proprietary",
+  "brand": "vcvwindows",
+  "author": "Tobias Poertner",
+  "authorEmail": "t.poertner@outlook.com",
+  "authorUrl": "https://tobiaspoertner.com",
+  "pluginUrl": "https://github.com/TobiasPrt/vcvwindows",
+  "manualUrl": "",
+  "sourceUrl": "https://github.com/TobiasPrt/vcvwindows",
+  "donateUrl": "",
+  "changelogUrl": "",
+  "modules": [
+    {
+      "slug": "rawGlitters",
+      "name": "rawGlitters",
+      "description": "A port of rawGlitters made by airwindows as a VCV Rack module.",
+      "tags": [
+        "airwindows",
+        "dither",
+        "rawglitters",
+        "brightenaudio"
+      ]
+    }
+  ]
+}
