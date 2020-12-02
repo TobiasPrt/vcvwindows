@@ -1,4 +1,4 @@
-<h1 align="center">
+ <h1 align="center">
   A port of audioplugins made by <a href="http://www.airwindows.com">airwindows</a> as a VCV Rack module
 </h1>
 
@@ -9,10 +9,6 @@
   <a href="https://github.com/TobiasPrt/rawGlitters_/issues/">
     <img src="https://img.shields.io/github/issues/TobiasPrt/vcvwindows"
          alt="Issues">
-  </a>
-  <a href="https://github.com/TobiasPrt/vcvwindows_/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/TobiasPrt/vcvwindows"
-         alt="Contributors">
   </a>
   <a href="https://github.com/TobiasPrt/vcvwindows_/LICENSE.md">
     <img src="https://img.shields.io/badge/License-MIT-blue.svg"
