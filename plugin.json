@@ -33,6 +33,12 @@
         "dither",
         "rawtimbers"
       ]
+    },
+    {
+      "slug": "Capacitor2",
+      "name": "Capacitor2",
+      "description": "",
+      "tags": []
     }
   ]
 }
