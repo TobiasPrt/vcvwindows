@@ -24,11 +24,6 @@ struct RawGlitters : Module {
 	enum LightIds {
 		NUM_LIGHTS
 	};
-	uint32_t fpd = 17;
-    float lastSampleL = 0.0;
-    float lastSample2L = 0.0;
-    float lastSampleR = 0.0;
-    float lastSample2R = 0.0;
 
     uint32_t fpd = 17;
     float lastSampleL = 0.0;
@@ -44,11 +39,7 @@ struct RawGlitters : Module {
 	}
 
 	void process(const ProcessArgs& args) override {
-<<<<<<< HEAD
-	    float highRez = params[RES_PARAM];
-=======
 	    bool highRez = params[RES_PARAM].getValue() > 0.f;
->>>>>>> ce858ddb2cbc6fcde668d46235afee1af819fb4c
 
 		float enabled = params[ENABLED_PARAM].getValue();
 		float fDeRez = params[DEREZ_PARAM].getValue();
@@ -58,7 +49,7 @@ struct RawGlitters : Module {
 
 		if (enabled == 1) {
 			float scaleFactor = 32768.0;
-			if (highRez == 0) scaleFactor = 8388608.0;
+			if (highRez) scaleFactor = 8388608.0;
 	    	if (fDeRez > 0.0) scaleFactor *= pow(1.0-fDeRez,6);
 	    	if (scaleFactor < 0.0001) scaleFactor = 0.0001;
 	    	float outScale = scaleFactor;
