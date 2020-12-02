@@ -1,5 +1,5 @@
 <h1 align="center">
-  A port of rawGlitters made by <a href="http://www.airwindows.com">airwindows</a> as a VCV Rack module
+  A port of audioplugins made by <a href="http://www.airwindows.com">airwindows</a> as a VCV Rack module
 </h1>
 
 <p align="center">
@@ -24,16 +24,13 @@
 </p>
 
 <p align="center">
-  <a href="#description">Description</a> •
+  <a href="#description">rawGlitters</a> •
   <a href="#overview">Overview</a> •
   <a href="#how-to-use">How to use</a> •
   <a href="#license">License</a>
 </p>
 
-!()[]
-
-
-## Description
+## rawGlitters
 
 This module is a straight-up port of Chris Johnsons rawGlitters plugin. The addition is only a panel designed to be potentially buildable in hardware and some smaller tweaks.
 
@@ -42,7 +39,9 @@ This module is a straight-up port of Chris Johnsons rawGlitters plugin. The addi
 
 The full description can be found [here](http://www.airwindows.com/rawglitters-redux/).
 
-## Overview
+!()[]
+
+### Overview
 
 - On-Off Switch
 - DeRez knob
