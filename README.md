@@ -21,7 +21,7 @@
 </p>
 
 <p align="center">
-  <a href="#description">rawGlitters</a> •
+  <a href="#Modules">Modules</a> •
   <a href="#overview">Overview</a> •
   <a href="#how-to-use">How to use</a> •
   <a href="#license">License</a>
