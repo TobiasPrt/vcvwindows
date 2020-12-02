@@ -31,11 +31,11 @@
 
 ### rawGlitters
 
-<h1 align="center">
+<p align="center">
     <a href="https://mate-app.de">
       <img src="https://github.com/TobiasPrt/vcvwindows/blob/master/img/rawglitters.png" alt="rawGlitters" width="100">
   </a>
-</h1>
+<p>
 
 This module is a straight-up port of Chris Johnsons rawGlitters plugin. The addition is only a panel designed to be potentially buildable in hardware and some smaller tweaks.
 
