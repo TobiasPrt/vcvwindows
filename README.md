@@ -47,23 +47,6 @@ This module is a straight-up port of Chris Johnsons rawGlitters plugin. The addi
 
 The full description can be found [here](http://www.airwindows.com/rawglitters-redux/).
 
-### rawTimbers
-
-<h1 align="center">
-    <a href="https://mate-app.de">
-      <img src="https://github.com/TobiasPrt/vcvwindows/blob/master/img/rawtimbers.png" alt="rawGlitters" width="100">
-  </a>
-</h1>
-
-This module is a straight-up port of Chris Johnsons rawTimbers plugin. The addition is only a panel designed to be potentially buildable in hardware and some smaller tweaks.
-
-> "All RawTimbers does, is choose between truncating to fixed point upwards or downwards, from any given point. Like Dither Me Timbers, it runs one sample of latency in order to do this choosing. Unlike Dither Me Timbers, it has an opposite plugin: RawGlitters. I see this stuff as ‘level-dependent EQ’ and always thought it seemed useful to dull and soften the quietest sounds and let loud noises seem brighter: it didn’t make sense to me to brighten the quietest sounds and let loud noises be duller" 
-~ Chris Johnson
-
-The full description can be found [here](https://www.airwindows.com/rawtimbers/).
-
-
-
 ## How To Use
 
 To compile the modules from source, see the official [VCV Rack documentation](https://vcvrack.com/manual/Building.html).
